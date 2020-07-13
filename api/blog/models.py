@@ -27,14 +27,5 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-#описываем модель пользователя
-class Users(models.Model):
-    name = models.CharField()
-    mail = models.CharField()
-    hash_pass = models.CharField()
-    active = models.IntegerField()
-    role = models.CharField()
-    createdAt = models.DateField()
-    updateAt = models.DateField()
 
     
