@@ -8,8 +8,8 @@ class Article(models.Model):
         ('draft','Черновик'),
         ('pub', 'Опубликовано'),
     )
-    title = models.TextField()
-    titleimg = models.TextField()
+    title = models.CharField(max_length=250)
+    titleimg = models.CharField(max_length=250,)
     meta = models.TextField()
     slug = models.SlugField(max_length=250,unique_for_date='createdAt')
     active = models.CharField(max_length=15, choices=ACTIVE_CHOICES, default='draft')
