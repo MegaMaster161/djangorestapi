@@ -7,8 +7,10 @@ verify_ssl = true
 pylint = "*"
 
 [packages]
-django = "==2.2.6"
 djangorestframework = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+Django = "==2.2.6"
 
 [requires]
 python_version = "3.8"
