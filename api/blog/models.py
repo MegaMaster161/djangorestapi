@@ -2,16 +2,17 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-#описываем модель статьи
+
 class Article(models.Model):
+    """описываем модель статьи"""
     ACTIVE_CHOICES = (
-        ('draft','Черновик'),
+        ('draft', 'Черновик'),
         ('pub', 'Опубликовано'),
     )
     title = models.CharField(max_length=250)
     titleimg = models.CharField(max_length=250)
     meta = models.TextField()
-    slug = models.SlugField(max_length=250,unique_for_date='createdAt')
+    slug = models.SlugField(max_length=250, unique_for_date='createdAt')
     active = models.CharField(max_length=15, choices=ACTIVE_CHOICES, default='draft')
     body = models.TextField()
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, 
