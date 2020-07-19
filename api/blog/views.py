@@ -4,13 +4,12 @@ from rest_framework.views import APIView
 from blog.models import Article
 from blog.serializers import ArticleSerializer
 
-"""
-Описываем модель для REST API
-"""
-
 
 class ArticleView(APIView):
+    """Описываем модель для REST API"""
     def get(self, request):
+        """Методом гет отдаём список статей REST API"""
         articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
         return Response({"articles": serializer.data})
+        
