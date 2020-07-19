@@ -10,6 +10,5 @@ class ArticleView(APIView):
     def get(self, request):
         """Методом гет отдаём список статей REST API"""
         articles = Article.objects.all()
-        serializer = ArticleSerializer(articles, many=True)
+        serializer = ArticleSerializer(articles, context={'request': request}, many=True)
         return Response({"articles": serializer.data})
-        

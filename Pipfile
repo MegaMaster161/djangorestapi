@@ -12,6 +12,7 @@ djoser = "*"
 djangorestframework-simplejwt = "*"
 Django = "==2.2.6"
 pylint-django = "*"
+social-auth-app-django = "*"
 
 [requires]
 python_version = "3.8"
