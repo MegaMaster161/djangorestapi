@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+from datetime import timedelta
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #локальные значения
     'blog.apps.BlogConfig', #моё приложение 
+    'restapi',
+    'accounts',
+    'djoser', #прослойка для управления авторизацией
     'rest_framework',
+    'rest_framework_simplejwt', #генерируем JWT 
 ]
 
 MIDDLEWARE = [
@@ -123,8 +127,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-#REST_FRAMEWORK = {
-#    'DEFAULT_PERMISSION_CLASSES': [
-#        'rest_framework.premissions.DjangoModelPremissionsOrAnonReadOnly'
-#    ]
-#}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
