@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     #локальные значения
     'blog.apps.BlogConfig', #моё приложение 
     'restapi',
-    'accounts',
-    'djoser', #прослойка для управления авторизацией
+    'accounts', 
+    'comments',
+    'djoser', #прослойка для описания бизнес логики авторизации
     'rest_framework',
     'rest_framework_simplejwt', #генерируем JWT 
 ]

@@ -22,4 +22,4 @@ class userProfileDetailView(RetrieveUpdateDestroyAPIView):
     """Комментарий"""
     queryset=userProfile.objects.all()
     serializer_class=userProfileSerializer
-    permission_classes=[IsOwnerProfileOrReadOnly,IsAuthenticated]
+    permission_classes=[IsOwnerProfileOrReadOnly, IsAuthenticated]

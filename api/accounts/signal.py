@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 from accounts.models import userProfile
 
 
@@ -9,4 +10,4 @@ from accounts.models import userProfile
 def create_profile(sender, instance, created, **kwargs):
     """Сигнал для создания пользователя"""
     if created:
-        userProfile.objects.create(user=instance)
+        userProfile.objects.get_or_create(user=instance)
