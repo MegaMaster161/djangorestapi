@@ -10,7 +10,7 @@ pylint = "*"
 djangorestframework = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
-Django = "==2.2.6"
+Django = "==2.2.21"
 pylint-django = "*"
 social-auth-app-django = "*"
 
